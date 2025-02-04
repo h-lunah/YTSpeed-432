@@ -65,10 +65,10 @@ if (typeof ytSpeed === 'undefined')
 
                 if (!playbackRate)
                     return;
-                else if (isNaN(parseInt(playbackRate)))
+                else if (isNaN(parseFloat(playbackRate)))
                     return;
 
-                this.playbackRate = playbackRate;
+                this.playbackRate = parseFloat(playbackRate);
                 ytSpeed.updateVideos();
             }
         };
