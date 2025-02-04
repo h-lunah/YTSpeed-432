@@ -1,4 +1,4 @@
-﻿var ytSpeed;
+﻿let ytSpeed;
 
 if (typeof ytSpeed === 'undefined')
 {
