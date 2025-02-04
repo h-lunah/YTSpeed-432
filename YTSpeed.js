@@ -36,12 +36,22 @@ if (typeof ytSpeed === 'undefined')
             },
             speedUp: function ()
             {
-                this.playbackRate *= 1.05946309436;
+                this.playbackRate *= Math.pow(2, 1/12);
                 ytSpeed.updateVideos();
             },
             speedDown: function ()
             {
-                this.playbackRate /= 1.05946309436;
+                this.playbackRate /= Math.pow(2, 1/12);
+                ytSpeed.updateVideos();
+            },
+            hz432: function ()
+            {
+                this.playbackRate *= Math.pow(2, -30/1200);
+                ytSpeed.updateVideos();
+            },
+            hz440: function ()
+            {
+                this.playbackRate /= Math.pow(2, -30/1200);
                 ytSpeed.updateVideos();
             },
             reset: function ()
@@ -54,6 +64,8 @@ if (typeof ytSpeed === 'undefined')
                 var playbackRate = prompt("New playback speed:", this.playbackRate);
 
                 if (!playbackRate)
+                    return;
+                else if (isNaN(parseInt(playbackRate)))
                     return;
 
                 this.playbackRate = playbackRate;
