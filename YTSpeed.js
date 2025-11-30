@@ -13,6 +13,11 @@ const ytSpeed = {
     flutterPhase: 0,
 
     init: function () {
+        if (typeof ytSpeed !== "undefined") {
+            console.log("ytSpeed already defined!")
+            return;
+        }
+        
         let playerContainer = document.getElementById('movie_player');
 
         let observerOptions;
